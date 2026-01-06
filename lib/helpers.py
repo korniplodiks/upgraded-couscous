@@ -1,49 +1,25 @@
-# Helper functions
+"""
+Upgraded Couscous - Code Refactoring
+"""
 
-def helper_function_5(x):
-    """Helper function for iteration 5."""
-    return x * 5
+from typing import List, Dict, Optional
 
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
+def optimize_algorithm(data: List[Dict]) -> List[Dict]:
+    """Optimized version with better performance"""
+    # Use list comprehension for better performance
+    return [
+        {**item, 'processed': True}
+        for item in data
+        if item.get('active', True)
+    ]
 
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
-
-
-# Helper functions
-
-def helper_function_23(x):
-    """Helper function for iteration 23."""
-    return x * 23
-
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
-
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
-
-
-# Helper functions
-
-def helper_function_26(x):
-    """Helper function for iteration 26."""
-    return x * 26
-
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
-
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
+def extract_metadata(obj: Dict) -> Optional[Dict]:
+    """Extract metadata with type hints"""
+    if not isinstance(obj, dict):
+        return None
+    
+    return {
+        'id': obj.get('id'),
+        'timestamp': obj.get('timestamp'),
+        'version': obj.get('version', '1.0.0')
+    }
